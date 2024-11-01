@@ -1,6 +1,6 @@
 {
   "name": "tsdi-lite",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "license": "MIT",
   "homepage": "https://github.com/stopsopa/tsdi-lite",
   "main": "./dist/cjs/index.js",
