@@ -5,6 +5,29 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![jest coverage](https://stopsopa.github.io/tsdi-lite/coverage/coverage-badge.svg)
 
+# Description
+
+Simple dependency injection container for typescript.
+
+Mainly designed to get harvest most important benefits of DI without any magic.
+Benefits like:
+
+- improved Testibility
+- loose coupling
+- code reusability
+- enhanced maintainability
+- scalability
+- enforcing single responsibility principle
+
+# Design goals
+
+- simplicity
+- typesafety
+- no dependency - low footprint
+- designed to be used in imperative way
+- no annotations, no decorators, no magic
+- framework agnostic
+
 # jsr
 
 Library is also released to jsr repository but the versioning don't match.
@@ -25,7 +48,8 @@ pnpn add tsdi-lite
 
 ## with Typescript
 
-Here is the bunch of code demonstrating all what this library offers
+Here is the bunch of code demonstrating all what this library offers.
+Just an example demonstrating registering class and functional services.
 
 ```ts
 import { DependencyInjection } from "tsdi-lite";
