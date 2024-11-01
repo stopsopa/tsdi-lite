@@ -11,7 +11,6 @@ export class DependencyInjection<T> {
 
   registerService<K extends keyof T>(key: K, value: (typeof this.dictionary)[K]) {
     if (this.keys.includes(key)) {
-      /// throw new Error(`tsdi-lite error: key >${key as string}< already exists in the registry`);
       throw th(`key >${key as string}< already exists in the registry`);
     }
 
@@ -21,7 +20,6 @@ export class DependencyInjection<T> {
 
   getService<K extends keyof T>(key: K): (typeof this.dictionary)[K] {
     if (!this.keys.includes(key)) {
-      /// throw new Error(`tsdi-lite error: key >${key as string}< not found in the registry`);
       throw th(`key >${key as string}< not found in the registry`);
     }
 
