@@ -1,0 +1,30 @@
+{
+  "name": "@stopsopa/tsdi-lite",
+  "version": "1.0.4",
+  "exports": "./src/index.ts",
+  "license": "MIT",
+  "publish": {
+    "exclude": [
+      "bash/",
+      "package.dev.json",
+      ".nvmrc",
+      "README.md",
+      "coverage/",
+      ".husky",
+      "yarn.lock",
+      ".github/",
+      ".env",
+      ".npmignore",
+      ".prettierignore",
+      "src/DependencyInjection.test.ts",
+      "eslint.config.js",
+      "jest.config.ts",
+      "prettier.config.mjs",
+      "release.config.cjs",
+      "index.html",
+      "tsconfig.json",
+      "commitlint.config.cjs",
+      "**/*.test.ts"
+    ]
+  }
+}

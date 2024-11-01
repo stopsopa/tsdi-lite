@@ -1,4 +1,3 @@
-Makefile
 /.idea/
 *.tgz
 *.test.ts
@@ -17,3 +16,9 @@ jest*
 .nvmrc
 /coverage/
 /docs/
+jsr.json
+release.config.cjs
+commitlint.config.cjs
+eslint.config.js
+index.html
+tsconfig.json

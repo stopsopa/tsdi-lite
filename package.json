@@ -1,3 +1,24 @@
 {
-  "type": "module"
+  "name": "tsdi-lite",
+  "version": "1.0.20",
+  "license": "MIT",
+  "homepage": "https://github.com/stopsopa/tsdi-lite",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.mjs",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.mjs",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc -p tsconfig.esm.json && /bin/bash .github/fix-mjs.sh",
+    "build": "rm -rf dist && npm run build:cjs && npm run build:esm"
+  },
+  "files": [
+    "dist"
+  ]
 }

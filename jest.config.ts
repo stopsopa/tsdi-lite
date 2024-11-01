@@ -5,7 +5,7 @@ const config: Config.InitialOptions = {
   collectCoverage: true,
   coverageDirectory: "coverage",
   coverageReporters: ["html", "text"],
-  collectCoverageFrom: ["server/**/*.ts"],
+  collectCoverageFrom: ["src/**/*.ts"],
   transform: {
     "^.+\\.ts?$": "ts-jest",
   },

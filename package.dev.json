@@ -1,10 +1,28 @@
 {
   "type": "module",
   "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@eslint/js": "^9.13.0",
+    "@semantic-release/changelog": "^6.0.3",
+    "@types/eslint__js": "^8.42.3",
     "@types/jest": "^29.5.14",
+    "eslint": "^9.13.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-jest": "^28.8.3",
+    "husky": "^9.1.6",
     "jest": "^29.7.0",
+    "prettier": "^3.3.3",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.12.2"
+  },
+  "scripts": {
+    "test": "/bin/bash test.sh",
+    "style:check": "yarn prettier --config prettier.config.mjs --check .",
+    "style:fix": "yarn prettier --config prettier.config.mjs --write .",
+    "style:list": "yarn prettier --config prettier.config.mjs --list-different .",
+    "prepare": "husky"
   }
 }

@@ -1,4 +1,4 @@
-import { DependencyInjection } from "./DependencyInjection";
+import DependencyInjection from "../src/DependencyInjection";
 
 describe("DependencyInjection", () => {
   it("normal use case", (done) => {
