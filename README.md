@@ -5,6 +5,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![jest coverage](https://stopsopa.github.io/tsdi-lite/coverage/coverage-badge.svg)](https://stopsopa.github.io/tsdi-lite/)
 
+Link to code coverage report: https://stopsopa.github.io/tsdi-lite.
+
 # Description
 
 Simple dependency injection container for typescript.
