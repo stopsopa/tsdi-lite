@@ -9,10 +9,10 @@
 
 Simple dependency injection container for typescript.
 
-Mainly designed to get harvest most important benefits of DI without any magic.
+Mainly designed to harvest most important benefits of DI without any magic.
 Benefits like:
 
-- improved Testibility
+- improved testibility
 - loose coupling
 - code reusability
 - enhanced maintainability
@@ -23,16 +23,10 @@ Benefits like:
 
 - simplicity
 - typesafety
-- no dependency - low footprint
+- no dependency - low footprint ([that is](/tsdi-lite/blob/main/src/index.ts) literally all we need)
 - designed to be used in imperative way
 - no annotations, no decorators, no magic
 - framework agnostic
-
-# jsr
-
-Library is also released to jsr repository but the versioning don't match.
-
-https://jsr.io/@stopsopa/tsdi-lite
 
 # install
 
@@ -42,13 +36,15 @@ yarn add tsdi-lite
 npm install tsdi-lite
 pnpn add tsdi-lite
 
+# also available in JSR: https://jsr.io/@stopsopa/tsdi-lite
+# but in JSR versions don't match exactly
+
 ```
 
 # Usage
 
-## with Typescript
-
 Here is the bunch of code demonstrating all what this library offers.
+
 Just an example demonstrating registering class and functional services.
 
 ```ts
@@ -89,7 +85,8 @@ type ContainerType = {
 };
 
 // create the container instance with proper type
-const container = new DependencyInjection<ContainerType>();
+// NOTE: this is what we would export from the module and use anywhere in the project
+export const container = new DependencyInjection<ContainerType>();
 
 // now we can start registering services
 container.registerService("square", (number: number): number => {
@@ -97,11 +94,12 @@ container.registerService("square", (number: number): number => {
 });
 container.registerService("double", numberFunctionFactory(2));
 container.registerService("triple", numberFunctionFactory(3));
+// inject one service into antoher
 container.registerService("square_timesten", new TimesTen(container.getService("square")));
 container.registerService("double_timesten", new TimesTen(container.getService("double")));
 container.registerService("triple_timesten", new TimesTen(container.getService("triple")));
 
-// the the instances of services where we need them
+// get the instances of services where we need them everywhere you have container
 // INFO; all instaces below have properly infered types and autocompletion
 //       but I can't show this here in the README.md
 const square = container.getService("square");
