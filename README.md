@@ -27,10 +27,11 @@ Benefits like:
 - designed to be used in imperative way
 - no annotations, no decorators, no magic
 - framework agnostic
+- library exports in commonjs and esm module formats with typescript definitions
 
 # install
 
-```
+```sh
 
 yarn add tsdi-lite
 npm install tsdi-lite
@@ -50,7 +51,7 @@ Just an example demonstrating registering class and functional services.
 ```ts
 import { DependencyInjection } from "tsdi-lite";
 
-// create some functions and classes
+// ---- SERVICES DEFINITIONS ----
 // to use them later to create some instances out of them
 interface NumberFunction {
   (number: number): number;
@@ -74,7 +75,7 @@ class TimesTen {
   }
 }
 
-// let's definie the container type with all it's dependencies
+// ---- CONTAINER TYPE FOR ALL SERVICES REGISTERED WITH THEIR ID'S ----
 type ContainerType = {
   square: NumberFunction;
   double: NumberFunction;
@@ -84,11 +85,11 @@ type ContainerType = {
   triple_timesten: TimesTen;
 };
 
-// create the container instance with proper type
+// --- INSTANCE OF CONTAINER ----
 // NOTE: this is what we would export from the module and use anywhere in the project
 export const container = new DependencyInjection<ContainerType>();
 
-// now we can start registering services
+// ---- REGISTERING INDIVIDUAL SERVICES ----
 container.registerService("square", (number: number): number => {
   return number * number;
 });
@@ -99,7 +100,7 @@ container.registerService("square_timesten", new TimesTen(container.getService("
 container.registerService("double_timesten", new TimesTen(container.getService("double")));
 container.registerService("triple_timesten", new TimesTen(container.getService("triple")));
 
-// get the instances of services where we need them everywhere you have container
+// ---- EXTRACTING INDIVIDUAL SERVICES ----
 // INFO; all instaces below have properly infered types and autocompletion
 //       but I can't show this here in the README.md
 const square = container.getService("square");
@@ -109,6 +110,7 @@ const square_timesten = container.getService("square_timesten");
 const double_timesten = container.getService("double_timesten");
 const triple_timesten = container.getService("triple_timesten");
 
+// ---- USING SERVICES ----
 // and use them
 console.log({
   square: square(2),
@@ -128,5 +130,20 @@ console.log({
 //     triple_timesten: 120
 // }
 ```
+
+# WARNING:
+
+Be aware that you have to follow natural order of registering services.
+First create instances of services and only after try to obtaine them to inject somewhere else. But that is the general principle of pretty much all DI containers.
+
+Also avoid circular dependencies.
+If absolutely needed then inject the container itself and get the service from it when needed inside dependant serivice.
+
+But this way you violate the principle of loose coupling.
+
+Because that service will have to know the service it needs by it's id.
+Therefore you are de facto coupling them with each other.
+
+Additionally this way also you are coupling your service with this particular implementation of DI container too.
 
 # How to use in the prod
