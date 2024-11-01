@@ -9,6 +9,7 @@ const config: Config.InitialOptions = {
   transform: {
     "^.+\\.ts?$": "ts-jest",
   },
+  resolver: "jest-ts-webcompat-resolver", // to fix: https://i.imgur.com/R9fqgGe.png
 };
 
 export default config;
