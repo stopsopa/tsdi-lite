@@ -23,7 +23,7 @@ Benefits like:
 
 - simplicity
 - typesafety
-- no dependency - low footprint ([that is](/tsdi-lite/blob/main/src/index.ts) literally all we need)
+- no dependency - low footprint ([that](src/index.ts) is literally all we need)
 - designed to be used in imperative way
 - no annotations, no decorators, no magic
 - framework agnostic
