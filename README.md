@@ -113,7 +113,6 @@ const double_timesten = container.getService("double_timesten");
 const triple_timesten = container.getService("triple_timesten");
 
 // ---- USING SERVICES ----
-// and use them
 console.log({
   square: square(2),
   double: double(3),
