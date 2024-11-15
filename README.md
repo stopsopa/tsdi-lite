@@ -1,9 +1,11 @@
 [![Tests](https://github.com/stopsopa/tsdi-lite/actions/workflows/test.yml/badge.svg)](https://github.com/stopsopa/tsdi-lite/actions/workflows/test.yml)
 [![JSR](https://jsr.io/badges/@stopsopa/tsdi-lite)](https://jsr.io/@stopsopa/tsdi-lite)
-[![npm version](https://badge.fury.io/js/tsdi-lite.svg)](https://badge.fury.io/js/tsdi-lite)
+[![npm version](https://badge.fury.io/js/tsdi-lite.svg)](https://www.npmjs.com/package/tsdi-lite)
 [![npm version](https://shields.io/npm/v/tsdi-lite)](https://www.npmjs.com/package/tsdi-lite)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![jest coverage](https://stopsopa.github.io/tsdi-lite/coverage/coverage-badge.svg)
+[![jest coverage](https://stopsopa.github.io/tsdi-lite/coverage/coverage-badge.svg)](https://stopsopa.github.io/tsdi-lite/)
+
+Link to code coverage report: https://stopsopa.github.io/tsdi-lite.
 
 # Description
 
@@ -130,19 +132,26 @@ console.log({
 // }
 ```
 
-# WARNING:
+# Warnings & Recommendations:
 
-Be aware that you have to follow natural order of registering services.
-First create instances of services and only after try to obtaine them to inject somewhere else. But that is the general principle of pretty much all DI containers.
+When using any Dependency Injection (DI) container, keep the following guidelines in mind to avoid common pitfalls.
 
-Also avoid circular dependencies.
-If absolutely needed then inject the container itself and get the service from it when needed inside dependant serivice.
+1. **Register Services in the Correct Order**
 
-But this way you violate the principle of loose coupling.
+   Ensure that services are registered in the appropriate order. Always create and register instances of services before attempting to obtain them for injection elsewhere. This is a general rule across DI containers.
 
-Because that service will have to know the service it needs by it's id.
-Therefore you are de facto coupling them with each other.
+2. **Avoid Circular Dependencies**
 
-Additionally this way also you are coupling your service with this particular implementation of DI container too.
+   Circular dependencies should generally be avoided. If you absolutely must use one, consider injecting the DI container itself, allowing you to retrieve the required service when needed within the dependent service. However, be aware that this approach has trade-offs:
 
-# How to use in the prod
+   - **Loose Coupling Violation**:
+
+     By directly referencing another service’s identifier, you’re creating a tight coupling between services, which goes against the principle of loose coupling.
+
+   - **Container-Specific Dependence**:
+
+     This approach makes your service dependent on this specific DI container implementation, reducing flexibility.
+
+3. **Use Interfaces for Dependencies**
+
+   Define dependencies in terms of interfaces rather than concrete implementations. This practice enhances loose coupling, allowing you to swap implementations more easily without modifying dependent services.

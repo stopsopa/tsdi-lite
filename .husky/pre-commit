@@ -19,7 +19,7 @@ if [ "${PRETTIER_STATUS}" != "0" ] || [ "${ESLINT_STATUS}" != "0" ] || [ "${COMM
 
     cat <<EEE
 
-HUSY pre-commit failed:
+HUSKY pre-commit failed:
 
 - Prettier: ${PRETTIER_STATUS}
 - ESLint: ${ESLINT_STATUS}
