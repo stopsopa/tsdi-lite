@@ -150,7 +150,7 @@ When using any Dependency Injection (DI) container, keep the following guideline
 
    - **Container-Specific Dependence**:
 
-     This approach makes your service dependent on this specific DI container implementation, reducing flexibility.
+     This approach could mean your service dependent on this specific DI container implementation, reducing flexibility.
 
 3. **Use Interfaces for Dependencies**
 
