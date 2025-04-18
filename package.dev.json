@@ -22,7 +22,6 @@
     "test": "/bin/bash test.sh",
     "style:check": "yarn prettier --config prettier.config.mjs --check .",
     "style:fix": "yarn prettier --config prettier.config.mjs --write .",
-    "style:list": "yarn prettier --config prettier.config.mjs --list-different .",
-    "prepare": "husky"
+    "style:list": "yarn prettier --config prettier.config.mjs --list-different ."
   }
 }

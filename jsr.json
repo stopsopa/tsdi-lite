@@ -10,7 +10,6 @@
       ".nvmrc",
       "README.md",
       "coverage/",
-      ".husky",
       "yarn.lock",
       ".github/",
       ".env",
